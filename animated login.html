@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Animated Login (Professional)</title>
+
+<script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:#3b5cff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:system-ui;
+}
+
+.container{
+  display:flex;
+  gap:80px;
+  align-items:center;
+}
+
+#character{
+  width:220px;
+  height:220px;
+}
+
+.form{
+  background:#ffffff22;
+  padding:30px;
+  border-radius:16px;
+  width:300px;
+}
+
+input,button{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border:none;
+  border-radius:8px;
+}
+
+button{
+  background:#22c55e;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- CHARACTER -->
+  <div id="character"></div>
+
+  <!-- LOGIN -->
+  <div class="form">
+    <h3>Login</h3>
+    <input placeholder="Email">
+    <input placeholder="Password" type="password">
+    <button>Login</button>
+  </div>
+
+</div>
+
+<script>
+lottie.loadAnimation({
+  container: document.getElementById('character'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'character.json' // ← humanoid animation file
+});
+</script>
+
+</body>
+</html>
