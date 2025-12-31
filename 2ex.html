@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nearest Odd Number</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(120deg, #667eea, #764ba2);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: white;
+      width: 400px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      background: #667eea;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #5a67d8;
+    }
+
+    .output {
+      margin-top: 20px;
+      padding: 12px;
+      background: #f4f6ff;
+      border-left: 4px solid #667eea;
+      border-radius: 6px;
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Nearest Odd Number</h2>
+  <p>Enter a number to find the nearest odd value</p>
+
+  <input type="number" id="num" placeholder="Enter a number">
+
+  <button onclick="findOdd()">Find Nearest Odd</button>
+
+  <div class="output" id="result">Output will appear here</div>
+</div>
+
+<script>
+  function findOdd() {
+    let n = document.getElementById("num").value;
+
+    if (n === "") {
+      document.getElementById("result").innerHTML =
+        "Please enter a number";
+      return;
+    }
+
+    n = parseInt(n);
+
+    if (n % 2 === 0) {
+      n = n + 1;
+    }
+
+    document.getElementById("result").innerHTML =
+      "Nearest Odd Number: " + n;
+  }
+</script>
+
+</body>
+</html>
