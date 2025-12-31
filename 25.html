@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String Object – User Input with Liquid Effect</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0b0f1a;
+      color: white;
+    }
+
+    /* Smaller liquid light */
+    .liquid {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(
+          circle 180px at var(--x, 50%) var(--y, 50%),
+          rgba(82, 39, 255, 0.35),
+          rgba(255, 159, 252, 0.22),
+          rgba(0,0,0,0.9) 70%
+        );
+      transition: background-position 0.12s ease;
+      z-index: 0;
+    }
+
+    /* Glass card */
+    .glass {
+      position: relative;
+      z-index: 2;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 30px 35px;
+      width: 460px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      background: linear-gradient(to right, #5227FF, #FF9FFC);
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .output p {
+      margin: 8px 0;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Liquid Ether background -->
+  <div class="liquid"></div>
+
+  <!-- Content -->
+  <div class="glass">
+    <h2>JavaScript String Object</h2>
+
+    <!-- USER INPUT -->
+    <input type="text" id="str1" placeholder="Enter first string">
+    <input type="text" id="str2" placeholder="Enter second string">
+    <input type="number" id="index" placeholder="Enter index value">
+
+    <button onclick="processString()">Process</button>
+
+    <div class="output" id="result"></div>
+  </div>
+
+  <script>
+    /* =============================
+       STRING OBJECT WITH USER INPUT
+    ============================== */
+    function processString() {
+      const s1 = document.getElementById("str1").value;
+      const s2 = document.getElementById("str2").value;
+      const idx = parseInt(document.getElementById("index").value);
+
+      let out = "";
+
+      if (s1.length > 0 && !isNaN(idx) && idx < s1.length) {
+        out += "<p><b>Character at index " + idx + ":</b> " + s1.charAt(idx) + "</p>";
+        out += "<p><b>Unicode at index " + idx + ":</b> " + s1.charCodeAt(idx) + "</p>";
+      } else {
+        out += "<p><b>Character / Unicode:</b> Invalid index</p>";
+      }
+
+      out += "<p><b>Joined String:</b> " + s1.concat(" ", s2) + "</p>";
+      out += "<p><b>Unicode 72 to Character:</b> " + String.fromCharCode(72) + "</p>";
+      out += "<p><b>Uppercase String:</b> " + s1.toUpperCase() + "</p>";
+
+      document.getElementById("result").innerHTML = out;
+    }
+
+    /* =============================
+       LIQUID CURSOR FOLLOW EFFECT
+    ============================== */
+    document.addEventListener("mousemove", e => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      document.documentElement.style.setProperty("--x", x + "%");
+      document.documentElement.style.setProperty("--y", y + "%");
+    });
+  </script>
+
+</body>
+</html>
