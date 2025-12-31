@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Details</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      width: 400px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    input {
+      width: 85%;
+      padding: 8px;
+      font-size: 15px;
+      margin: 6px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4facfe;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #00c6ff;
+    }
+
+    .output {
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #222;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Student Details</h2>
+  <p>Enter student information</p>
+
+  <input type="text" id="name" placeholder="Student Name">
+  <input type="number" id="age" placeholder="Age">
+  <input type="text" id="course" placeholder="Course">
+
+  <br>
+
+  <button onclick="showStudent()">Display Details</button>
+
+  <div class="output" id="result"></div>
+</div>
+
+<script>
+  function showStudent() {
+    let name = document.getElementById("name").value;
+    let age = document.getElementById("age").value;
+    let course = document.getElementById("course").value;
+
+    if (name === "" || age === "" || course === "") {
+      document.getElementById("result").innerHTML =
+        "Please fill all fields";
+      return;
+    }
+
+    let student = {
+      name: name,
+      age: age,
+      course: course
+    };
+
+    document.getElementById("result").innerHTML =
+      "Name: " + student.name + "<br>" +
+      "Age: " + student.age + "<br>" +
+      "Course: " + student.course;
+  }
+</script>
+
+</body>
+</html>
