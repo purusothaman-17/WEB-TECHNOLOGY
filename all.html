@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Programs</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .box {
+      background-color: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .title {
+      font-weight: bold;
+      color: #0056b3;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>JavaScript Program Outputs</h1>
+
+<div class="box">
+  <div class="title">1. Welcome Message</div>
+  <p id="p1"></p>
+</div>
+
+<div class="box">
+  <div class="title">2. Add Two Numbers</div>
+  <p id="p2"></p>
+</div>
+
+<div class="box">
+  <div class="title">3. Even or Odd</div>
+  <p id="p3"></p>
+</div>
+
+<div class="box">
+  <div class="title">4. Largest of Two Numbers</div>
+  <p id="p4"></p>
+</div>
+
+<div class="box">
+  <div class="title">5. Numbers from 1 to 10</div>
+  <p id="p5"></p>
+</div>
+
+<div class="box">
+  <div class="title">6. Function to Multiply Numbers</div>
+  <p id="p6"></p>
+</div>
+
+<div class="box">
+  <div class="title">7. Array Elements</div>
+  <p id="p7"></p>
+</div>
+
+<div class="box">
+  <div class="title">8. Length of a String</div>
+  <p id="p8"></p>
+</div>
+
+<div class="box">
+  <div class="title">9. Student Object</div>
+  <p id="p9"></p>
+</div>
+
+<div class="box">
+  <div class="title">10. Current Date and Time</div>
+  <p id="p10"></p>
+</div>
+
+<script>
+  // 1. Welcome message
+  alert("Welcome to JavaScript!");
+  document.getElementById("p1").innerHTML =
+    "Welcome message displayed using alert box.";
+
+  // 2. Add two numbers
+  let a = 10, b = 20;
+  document.getElementById("p2").innerHTML =
+    "Sum = " + (a + b);
+
+  // 3. Even or Odd
+  let num = 7;
+  document.getElementById("p3").innerHTML =
+    (num % 2 === 0) ? "Even Number" : "Odd Number";
+
+  // 4. Largest of two numbers
+  let x = 15, y = 25;
+  document.getElementById("p4").innerHTML =
+    (x > y) ? "X is largest" : "Y is largest";
+
+  // 5. Print 1 to 10
+  let result = "";
+  for (let i = 1; i <= 10; i++) {
+    result += i + " ";
+  }
+  document.getElementById("p5").innerHTML = result;
+
+  // 6. Function multiply
+  function multiply(m, n) {
+    return m * n;
+  }
+  document.getElementById("p6").innerHTML =
+    "Result = " + multiply(4, 5);
+
+  // 7. Array
+  let fruits = ["Apple", "Banana", "Orange"];
+  document.getElementById("p7").innerHTML =
+    fruits.join(", ");
+
+  // 8. String length
+  let text = "JavaScript";
+  document.getElementById("p8").innerHTML =
+    "Length of '" + text + "' = " + text.length;
+
+  // 9. Object
+  let student = {
+    name: "Asraf",
+    age: 20,
+    course: "Web Technology"
+  };
+  document.getElementById("p9").innerHTML =
+    student.name + " | " + student.age + " | " + student.course;
+
+  // 10. Date and Time
+  let now = new Date();
+  document.getElementById("p10").innerHTML = now;
+</script>
+
+</body>
+</html>
