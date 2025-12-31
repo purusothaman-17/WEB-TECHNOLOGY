@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Experiment 21 – Frameset</title>
+  <style>
+    body, html {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial;
+    }
+
+    /* Animation background */
+    canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    /* Foreground content */
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+      color: white;
+      background: rgba(0,0,0,0.4);
+    }
+
+    iframe {
+      width: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Animated Background -->
+<canvas id="bg"></canvas>
+
+<div class="content">
+  <h2>Experiment 21 – Frameset</h2>
+
+  Top Frame URL:
+  <input type="text" id="top"><br><br>
+
+  Bottom Frame URL:
+  <input type="text" id="bottom"><br><br>
+
+  <button onclick="loadFrames()">Load Frames</button>
+
+  <div id="frames" style="height:400px; margin-top:15px;"></div>
+</div>
+
+<!-- Frames Logic -->
+<script>
+function loadFrames() {
+  let t = document.getElementById("top").value;
+  let b = document.getElementById("bottom").value;
+
+  document.getElementById("frames").innerHTML = `
+    <iframe src="${t}" height="50%"></iframe>
+    <iframe src="${b}" height="50%"></iframe>
+  `;
+}
+</script>
+
+<!-- Simple Liquid Animation (HTML-friendly) -->
+<script>
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+}
+resize();
+window.onresize = resize;
+
+let t = 0;
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for(let i=0;i<100;i++){
+    ctx.fillStyle = `hsla(${i*4+t},80%,60%,0.3)`;
+    ctx.beginPath();
+    ctx.arc(
+      Math.sin(i+t/20)*300 + canvas.width/2,
+      Math.cos(i+t/30)*300 + canvas.height/2,
+      60,0,Math.PI*2
+    );
+    ctx.fill();
+  }
+  t++;
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
