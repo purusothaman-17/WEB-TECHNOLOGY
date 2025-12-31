@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date and Time</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      width: 360px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4facfe;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00c6ff;
+    }
+
+    .output {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>Current Date & Time</h2>
+  <p>Click the button to view current date and time</p>
+
+  <button onclick="showDateTime()">Show Date & Time</button>
+
+  <div class="output" id="result"></div>
+</div>
+
+<script>
+  function showDateTime() {
+    let now = new Date();
+    document.getElementById("result").innerHTML = now;
+  }
+</script>
+
+</body>
+</html>
