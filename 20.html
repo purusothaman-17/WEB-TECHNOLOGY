@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Floating Emojis</title>
+
+<style>
+/* PAGE STYLE */
+body {
+  margin: 0;
+  height: 2000px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(120deg, #141e30, #243b55);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* FLOATING EMOJI BACKGROUND */
+.emoji-bg span {
+  position: fixed;
+  bottom: -100px;
+  font-size: 40px;
+  animation: floatUp 15s linear infinite;
+  opacity: 0.7;
+}
+
+/* DIFFERENT POSITIONS & SPEEDS */
+.emoji-bg span:nth-child(1) { left: 10%; animation-duration: 18s; }
+.emoji-bg span:nth-child(2) { left: 30%; animation-duration: 22s; }
+.emoji-bg span:nth-child(3) { left: 50%; animation-duration: 16s; }
+.emoji-bg span:nth-child(4) { left: 70%; animation-duration: 20s; }
+.emoji-bg span:nth-child(5) { left: 90%; animation-duration: 25s; }
+
+/* FLOAT ANIMATION */
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-2200px);
+  }
+}
+
+/* FIXED EMOJI (MAIN DEMO) */
+.fixed-emoji {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 55px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* BOUNCE ANIMATION */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+</style>
+</head>
+
+<body>
+
+<h2>Floating Emoji Background</h2>
+<p>Scroll the page and watch the floating emojis.</p>
+
+<!-- FLOATING EMOJIS -->
+<div class="emoji-bg">
+  <span>😀</span>
+  <span>🚀</span>
+  <span>❤️</span>
+  <span>🔥</span>
+  <span>✨</span>
+</div>
+
+<!-- FIXED EMOJI -->
+<div class="fixed-emoji">
+  😎
+</div>
+
+</body>
+</html>
